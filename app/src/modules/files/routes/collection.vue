@@ -332,7 +332,8 @@ function useFileUpload() {
 			notificationsStore.remove(dragNotificationID);
 		}
 
-		const files = Array.from(event.dataTransfer.files).filter((file) => file.type);
+		// Don't filter on `file.type`: browsers report an empty type for extensions they don't know
+		const files = Array.from(event.dataTransfer.files);
 
 		fileUploadNotificationID = notificationsStore.add({
 			title: t(

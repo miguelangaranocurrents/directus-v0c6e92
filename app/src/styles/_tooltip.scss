@@ -1,3 +1,9 @@
+// The tooltip is force-mounted, so its positioning wrapper stays in the DOM while hidden.
+// It must never capture pointer events, otherwise it blocks clicks on whatever it overlaps.
+[data-reka-popper-content-wrapper]:has(> .tooltip) {
+	pointer-events: none;
+}
+
 .tooltip {
 	--tooltip-foreground-color: var(--foreground-inverted);
 	--tooltip-background-color: var(--background-inverted);

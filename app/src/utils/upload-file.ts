@@ -35,7 +35,7 @@ export async function uploadFile(
 		}
 
 		fileInfo.filename_download = file.name;
-		fileInfo.type = file.type;
+		if (file.type) fileInfo.type = file.type;
 
 		return new Promise((resolve, reject) => {
 			const upload = new Upload(file, {
